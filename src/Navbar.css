@@ -1,3 +1,6 @@
+/* $primary-blue: #215184;
+$font-color: #545454; */
+
 .navbarContainer {
   padding-top: 10px;
   padding-left: 10px;
@@ -17,11 +20,23 @@
   margin: 0;
   margin-top: 3px;
   font-size: 23px;
+  color: #545454;
 }
 
 .navbarReload {
   float: right;
-  border: 2px solid blue;
+  background-color: #215184;
+  color: white;
   margin-top: 5px;
-
+  padding: 5px 0 5px 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
+.navbarReload:hover{
+    cursor: pointer;
+}
+
+.navbarReloadIcon{
+    padding: 0 5px 0 5px;
+}
+
