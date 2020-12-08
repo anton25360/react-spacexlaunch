@@ -8,6 +8,7 @@ function Navbar() {
         <img className="navbarLogoImage" src={logo} />
         <p className="navbarLogoText">LAUNCHES</p>
       </div>
+      <div className="navbarReload">Reload Data</div>
     </div>
   );
 }
