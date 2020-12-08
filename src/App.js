@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="appContainer">
-        <img className="appImage" src={image} />
+        <img className="appImage" src={image} alt='rocket launch' />
         <div className='appTest'></div>
       </div>
     </div>
