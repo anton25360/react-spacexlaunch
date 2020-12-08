@@ -1,3 +1,15 @@
-.navbarContainer {
-  border: 2px solid red;
+.navbarLogoContainer {
+  display: flex;
+  align-items: center;
 }
+
+.navbarLogoImage {
+  width: 170px;
+  height: 30px ;
+}
+
+.navbarLogoText {
+    display: inline-block;
+    margin: 0;
+    font-size: 23px;
+  }
