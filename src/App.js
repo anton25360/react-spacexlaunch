@@ -1,6 +1,7 @@
 import "./App.css";
 import image from "./assets/img/launch-home.png";
-import Navbar from "./Navbar";import sort from "./assets/icon/sort.png";
+import Navbar from "./Navbar";
+import sort from "./assets/icon/sort.png";
 import select from "./assets/icon/select.png";
 
 let isAscending = true;
@@ -28,12 +29,9 @@ function App() {
             <button className="appButton">
               Filter by Year <img src={select} />
             </button>
-            <button
-              className="appButton"
-              onClick={() => switchSort()}
-              id="btnSort"
-            >
-              Sort Ascending <img className="appButtonSortIcon" src={sort} />
+            <button className="appButton" onClick={() => switchSort()}>
+              <span id="btnSort">Sort Ascending</span>{" "}
+              <img className="appButtonSortIcon" src={sort} />
             </button>
           </div>
           <div className="appContent">
