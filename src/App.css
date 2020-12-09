@@ -15,3 +15,23 @@
   height: 300px;
   width: 300px;
 }
+
+.appButtonsContainer {
+  border: 2px solid aquamarine;
+  text-align: end;
+  /* float: right; */
+}
+
+.appButtonFilterByYear {
+  border: 2px solid red;
+  /* float: right; */
+}
+.appButtonSortAscending {
+  border: 2px solid red;
+  /* float: right; */
+
+}
+
+.appContent {
+  border: 2px solid burlywood;
+}
