@@ -32,6 +32,11 @@
 .appButton:hover{
   cursor: pointer;
 }
+.appButtonSortIcon{
+  width: 10px;
+  margin-left: 2px;
+
+}
 
 .appContent {
   border: 2px solid burlywood;
