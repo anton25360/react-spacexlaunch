@@ -1,19 +1,18 @@
 .appContainer {
   border: 2px solid red;
-  /* text-align: center; */
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
 .appImage {
-  border: 2px solid violet;
+  border: 2px solid rgb(241, 41, 241);
 }
 
 .appTest {
   border: 2px solid violet;
   height: 300px;
-  width: 300px;
+  width: 500px;
 }
 
 .appButtonsContainer {
