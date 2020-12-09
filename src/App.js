@@ -10,8 +10,8 @@ function App() {
         <img className="appImage" src={image} alt="rocket launch" />
         <div className="appTest">
           <div className="appButtonsContainer">
-            <button className="appButtonFilterByYear">Filter by Year ICON</button>
-            <button className="appButtonSortAscending">Sort Ascending ICON</button>
+            <button className="appButton">Filter by Year</button>
+            <button className="appButton">Sort Ascending</button>
           </div>
           <div className="appContent">
             <p>hellotherebro</p>

@@ -22,14 +22,16 @@
   /* float: right; */
 }
 
-.appButtonFilterByYear {
-  border: 2px solid red;
-  /* float: right; */
+.appButton {
+  border: none;
+  background-color: #215184;
+  color: white;
+  font-family: 'Brandon Grotesque';
+  margin-left: 10px;
+  padding: 5px 10px;
 }
-.appButtonSortAscending {
-  border: 2px solid red;
-  /* float: right; */
-
+.appButton:hover{
+  cursor: pointer;
 }
 
 .appContent {
