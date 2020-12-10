@@ -25,6 +25,18 @@ class App extends React.Component {
       }
     };
 
+    let getData = () => {
+      fetch("https://api.spacexdata.com/v4/launches")
+        .then((response) => response.json())
+        .then((data) => displayData(data));
+    };
+
+    let displayData = (data) => {
+      let size = data.length
+      let item = data[0]
+      console.log(item);
+    }
+
     return (
       <div className="App">
         <Navbar />
@@ -32,12 +44,12 @@ class App extends React.Component {
           <img className="appImage" src={image} alt="rocket launch" />
           <div className="appTest">
             <div className="appButtonsContainer">
-              <button className="appButton">
-                Filter by Year <img alt='select icon' src={select} />
+              <button className="appButton" onClick={getData}>
+                Filter by Year <img alt="select icon" src={select} />
               </button>
-              <button className="appButton" onClick={() => switchSort()}>
+              <button className="appButton" onClick={switchSort}>
                 <span id="btnSort">Sort Ascending</span>{" "}
-                <img alt='sort icon' className="appButtonSortIcon" src={sort} />
+                <img alt="sort icon" className="appButtonSortIcon" src={sort} />
               </button>
             </div>
             <div className="appContent">
