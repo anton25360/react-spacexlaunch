@@ -10,13 +10,13 @@
 }
 
 .appTest {
-  border: 2px solid violet;
+  /* border: 2px solid violet; */
   height: 300px;
   width: 500px;
 }
 
 .appButtonsContainer {
-  border: 2px solid aquamarine;
+  /* border: 2px solid aquamarine; */
   text-align: end;
   /* float: right; */
 }
@@ -39,5 +39,5 @@
 }
 
 .appContent {
-  border: 2px solid burlywood;
+  /* border: 2px solid burlywood; */
 }
