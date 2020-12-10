@@ -3,8 +3,7 @@ import image from "./assets/img/launch-home.png";
 import Navbar from "./Navbar";
 import sort from "./assets/icon/sort.png";
 import select from "./assets/icon/select.png";
-import React, { useState } from "react";
-import { render } from "@testing-library/react";
+import React from "react";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,10 +16,10 @@ class App extends React.Component {
   render() {
     let switchSort = () => {
       let btn = document.getElementById("btnSort");
-      if (this.state.isAscending == true) {
+      if (this.state.isAscending === true) {
         btn.innerText = "Sort Descending";
         this.setState({ isAscending: false });
-      } else if (this.state.isAscending == false) {
+      } else if (this.state.isAscending === false) {
         btn.innerText = "Sort Ascending";
         this.setState({ isAscending: true });
       }
@@ -34,11 +33,11 @@ class App extends React.Component {
           <div className="appTest">
             <div className="appButtonsContainer">
               <button className="appButton">
-                Filter by Year <img src={select} />
+                Filter by Year <img alt='select icon' src={select} />
               </button>
               <button className="appButton" onClick={() => switchSort()}>
                 <span id="btnSort">Sort Ascending</span>{" "}
-                <img className="appButtonSortIcon" src={sort} />
+                <img alt='sort icon' className="appButtonSortIcon" src={sort} />
               </button>
             </div>
             <div className="appContent">
