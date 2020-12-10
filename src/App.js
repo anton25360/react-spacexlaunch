@@ -41,25 +41,6 @@ class App extends React.Component {
       let date = formatDate(data[0]["date_utc"]); //24 March 2006
       let number = data[0]["flight_number"]; //1
       let rocketID = data[0]["rocket"]; //1165415311
-      let rocketName;
-
-      // let formattedDate = formatDate(unformattedDate)
-
-      // let temp = getRocketName('x')
-      // console.log(temp);
-
-      // fetch("https://api.spacexdata.com/v4/rockets/"+data[0]["rocket"])
-      // .then((response) => response.json())
-      //   .then((data) => {
-      //     let rocketName = data["name"]
-
-      //     // this.setState({ rocketName: data["name"] });
-      //     // console.log(rocketName);
-      //     // rocket = rocketName
-      //   })
-      //   .finally(
-      //   rocketName = 'trauma'
-      // )
 
       getRocketName(rocketID).then((response) => {
         console.log(response);
@@ -68,25 +49,12 @@ class App extends React.Component {
           name: name,
           date: date,
           number: number,
-          rocket: response
+          rocket: response,
         };
         let dataArrayCopy = this.state.dataArray;
         dataArrayCopy.push(tempObject);
         this.setState({ dataArray: dataArrayCopy });
       });
-
-      // let luna =getRocketName(rocketID).then(response => {return response})
-      // console.log('OMG '+luna);
-
-      // let tempObject = {
-      //   name: name,
-      //   date: date,
-      //   number: number,
-      //   rocket: rocketName,
-      // };
-      // let dataArrayCopy = this.state.dataArray;
-      // dataArrayCopy.push(tempObject);
-      // this.setState({ dataArray: dataArrayCopy });
     };
 
     let formatDate = (dateString) => {
@@ -94,25 +62,13 @@ class App extends React.Component {
       return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
-    // let getRocketName = (id) => {
-    //   fetch("https://api.spacexdata.com/v4/rockets/"+id)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //     });
-    // };
-
     let getRocketName = (id) => {
       return fetch("https://api.spacexdata.com/v4/rockets/" + id)
         .then((response) => response.json())
         .then((responseData) => {
-          // console.log(responseData);
           return responseData["name"];
         });
-      // .catch(error => console.warn(error));
     };
-
-    // getvals().then(response => console.log(response));
 
     return (
       <div className="App">
@@ -130,10 +86,6 @@ class App extends React.Component {
               </button>
             </div>
             <div className="appContent">
-              {/* {this.state.dataArray.map((name,details) => (
-                // <Item key={index} item={item} />
-                <p>{name} and {details} </p>
-              ))} */}
               {this.state.dataArray.map(function (data, idx) {
                 return (
                   <li key={idx}>
