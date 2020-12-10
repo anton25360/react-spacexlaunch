@@ -15,67 +15,61 @@ class App extends React.Component {
     };
   }
 
-  render() {
+  componentDidMount() {
+    this.getApiData();
+  }
 
-    let switchSort = () => {
-      let btn = document.getElementById("btnSort");
-      if (this.state.isAscending === true) {
-        btn.innerText = "Sort Descending";
-        this.setState({ isAscending: false });
-      } else if (this.state.isAscending === false) {
-        btn.innerText = "Sort Ascending";
-        this.setState({ isAscending: true });
-      }
-    };
+  getApiData = () => {
+    fetch("https://api.spacexdata.com/v4/launches")
+      .then((response) => response.json())
+      .then((data) => {
+        let dataArrayLocal = [];
 
-    let getDataFromAPI = () => {
-      fetch("https://api.spacexdata.com/v4/launches")
-        .then((response) => response.json())
-        .then((data) => {
-          let size = data.length; //160ish?
-          // displayData(data);
+        data.forEach((element) => {
+          // console.log(element);
+          let name = element["name"]; //FalconSat
+          let date = this.formatDate(element["date_utc"]); //24 March 2006
+          let number = element["flight_number"]; //1
 
-          let i = 0;
-          while (i != size) {
-            displayData(data, i);
-            i++;
-          }
+          this.getRocketName(element["rocket"]).then((response) => {
+            let tempObject = {
+              name: name,
+              date: date,
+              number: number,
+              rocket: response,
+            };
+            dataArrayLocal.push(tempObject);
+            this.setState({ dataArray: dataArrayLocal });
+          });
         });
-    };
-    getDataFromAPI()
-
-    let displayData = (data, i) => {
-      let name = data[i]["name"]; //FalconSat
-      let date = formatDate(data[i]["date_utc"]); //24 March 2006
-      let number = data[i]["flight_number"]; //1
-      let rocketID = data[i]["rocket"]; //1165415311
-
-      getRocketName(rocketID).then((response) => {
-        let tempObject = {
-          name: name,
-          date: date,
-          number: number,
-          rocket: response,
-        };
-        let dataArrayCopy = this.state.dataArray;
-        dataArrayCopy.push(tempObject);
-        this.setState({ dataArray: dataArrayCopy });
       });
-    };
+  };
 
-    let formatDate = (dateString) => {
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      return new Date(dateString).toLocaleDateString(undefined, options);
-    };
+  formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
-    let getRocketName = (id) => {
-      return fetch("https://api.spacexdata.com/v4/rockets/" + id)
-        .then((response) => response.json())
-        .then((responseData) => {
-          return responseData["name"];
-        });
-    };
+  getRocketName = (id) => {
+    return fetch("https://api.spacexdata.com/v4/rockets/" + id)
+      .then((response) => response.json())
+      .then((responseData) => {
+        return responseData["name"];
+      });
+  };
 
+  switchSort = () => {
+    let btn = document.getElementById("btnSort");
+    if (this.state.isAscending === true) {
+      btn.innerText = "Sort Descending";
+      this.setState({ isAscending: false });
+    } else if (this.state.isAscending === false) {
+      btn.innerText = "Sort Ascending";
+      this.setState({ isAscending: true });
+    }
+  };
+
+  render() {
     return (
       <div className="App">
         <Navbar />
@@ -86,7 +80,7 @@ class App extends React.Component {
               <button className="appButton">
                 Filter by Year <img alt="select icon" src={select} />
               </button>
-              <button className="appButton" onClick={switchSort}>
+              <button className="appButton" onClick={this.switchSort}>
                 <span id="btnSort">Sort Ascending</span>{" "}
                 <img alt="sort icon" className="appButtonSortIcon" src={sort} />
               </button>
@@ -95,7 +89,7 @@ class App extends React.Component {
               {this.state.dataArray.map(function (data, idx) {
                 return (
                   <Item
-                    key={idx}
+                    key={data.number}
                     number={data.number}
                     name={data.name}
                     date={data.date}
