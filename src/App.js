@@ -1,10 +1,13 @@
 import "./App.css";
 import image from "./assets/img/launch-home.png";
-import Navbar from "./Navbar";
 import Item from "./Item";
 import sort from "./assets/icon/sort.png";
 import select from "./assets/icon/select.png";
 import React from "react";
+
+import "./Navbar.css";
+import logo from "./assets/spacex-logo.png";
+import reload from "./assets/icon/refresh.png";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +29,6 @@ class App extends React.Component {
         let dataArrayLocal = [];
 
         data.forEach((element) => {
-          // console.log(element);
           let name = element["name"]; //FalconSat
           let date = this.formatDate(element["date_utc"]); //24 March 2006
           let number = element["flight_number"]; //1
@@ -69,10 +71,41 @@ class App extends React.Component {
     }
   };
 
+  reloadData = () => {
+    this.setState({ dataArray: [] });
+    this.getApiData()
+  }
+
   render() {
+
+
     return (
       <div className="App">
-        <Navbar />
+
+<div className="navbarContainer">
+      <div className="navbarLogoContainer">
+        <img alt='logo' className="navbarLogoImage" src={logo} />
+        <p className="navbarLogoText">LAUNCHES</p>
+      </div>
+      <div className="navbarReload" onClick={this.reloadData}>
+        Reload Data <img alt='reload' className="navbarReloadIcon" src={reload} />
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div className="appContainer">
           <img className="appImage" src={image} alt="rocket launch" />
           <div className="appTest">
