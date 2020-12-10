@@ -10,11 +10,11 @@ function Navbar() {
   return (
     <div className="navbarContainer">
       <div className="navbarLogoContainer">
-        <img className="navbarLogoImage" src={logo} />
+        <img alt='logo' className="navbarLogoImage" src={logo} />
         <p className="navbarLogoText">LAUNCHES</p>
       </div>
       <div className="navbarReload" onClick={()=>reloadData()}>
-        Reload Data <img className="navbarReloadIcon" src={reload} />
+        Reload Data <img alt='reload' className="navbarReloadIcon" src={reload} />
       </div>
     </div>
   );
