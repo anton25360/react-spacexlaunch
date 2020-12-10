@@ -2,8 +2,11 @@ import React from 'react'
 
 export default function Item() {
     return (
-        <div>
-            
+        <div className='itemContainer'>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import "./App.css";
 import image from "./assets/img/launch-home.png";
 import Navbar from "./Navbar";
+import Item from "./Item";
 import sort from "./assets/icon/sort.png";
 import select from "./assets/icon/select.png";
 import React from "react";
