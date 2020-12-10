@@ -1,57 +1,43 @@
 .itemContainer {
-  /* border: 2px solid red; */
-  /* padding: 10px; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.4);
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.4);
 
   border-radius: 7px;
   margin: 10px 10px 0 10px;
 }
 
 .itemNumber {
-  /* border: 2px solid blanchedalmond; */
   font-weight: bold;
   font-size: 20px;
   margin: 10px;
-  /* margin-top: 20px; */
 }
 
 .itemName {
-  /* border: 2px solid blueviolet; */
   font-weight: 500;
   font-size: 20px;
   padding-left: 30px;
   margin: 10px;
-
 }
 
 .itemDate {
-  /* border: 2px solid brown; */
   margin: 0;
   font-size: 12px;
-
 }
 
 .itemRocket {
-  /* border: 2px solid darkmagenta; */
   font-weight: bold;
   margin: 0;
   text-align: end;
-
 }
 
-.itemRight{
-    /* border: 2px solid rgb(0, 139, 139); */
-    margin-top: 4px;
-    margin-right: 10px;
-    display: inline-flex;
-    float: right;
-    /* justify-content: center; */
-    flex-direction: column;
+.itemRight {
+  margin-top: 4px;
+  margin-right: 10px;
+  display: inline-flex;
+  float: right;
+  flex-direction: column;
 }
 
-.itemElement{
-    display: inline-block;
-    color: #545454;
-
+.itemElement {
+  display: inline-block;
+  color: #545454;
 }
