@@ -6,22 +6,26 @@ import select from "./assets/icon/select.png";
 import React, { useState } from "react";
 import { render } from "@testing-library/react";
 
-let isAscending = true;
-
-function switchSort() {
-  let btn = document.getElementById("btnSort");
-
-  if (isAscending == true) {
-    btn.innerText = "Sort Descending";
-    isAscending = false;
-  } else if (isAscending == false) {
-    btn.innerText = "Sort Ascending";
-    isAscending = true;
-  }
-}
-
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAscending: true,
+    };
+  }
+
   render() {
+    let switchSort = () => {
+      let btn = document.getElementById("btnSort");
+      if (this.state.isAscending == true) {
+        btn.innerText = "Sort Descending";
+        this.setState({ isAscending: false });
+      } else if (this.state.isAscending == false) {
+        btn.innerText = "Sort Ascending";
+        this.setState({ isAscending: true });
+      }
+    };
+
     return (
       <div className="App">
         <Navbar />
@@ -42,7 +46,7 @@ class App extends React.Component {
               <p>hellotherebro</p>
               <p>hellotherebro</p>
               <p>hellotherebro</p>
-              <p>hellotherebro</p>
+              <p>{this.state.count}</p>
             </div>
           </div>
         </div>
