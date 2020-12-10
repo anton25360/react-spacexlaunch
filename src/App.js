@@ -94,7 +94,7 @@ class App extends React.Component {
                   <Item key={idx} name="jeff" age="21" />
                 );
               })}
-              <Item name="jeff" age="21" />
+              <Item number='1' name='FalconSat' date='24 March 2006' rocket='Falcon 1'/>
             </div>
           </div>
         </div>
