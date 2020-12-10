@@ -44,7 +44,6 @@ class App extends React.Component {
       let rocketID = data[0]["rocket"]; //1165415311
 
       getRocketName(rocketID).then((response) => {
-
         let tempObject = {
           name: name,
           date: date,
@@ -92,9 +91,10 @@ class App extends React.Component {
                   //   {data.name} {data.date} {data.number} {data.rocket}{" "}
                   // </li>
 
-                  <Item key={idx} name='jeff' age='21'/>
+                  <Item key={idx} name="jeff" age="21" />
                 );
               })}
+              <Item name="jeff" age="21" />
             </div>
           </div>
         </div>
