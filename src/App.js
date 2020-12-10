@@ -35,7 +35,7 @@ class App extends React.Component {
     };
 
     let displayData = (data) => {
-      let size = data.length; //160
+      // let size = data.length; //160
 
       let name = data[0]["name"]; //FalconSat
       let date = formatDate(data[0]["date_utc"]); //24 March 2006
@@ -43,7 +43,6 @@ class App extends React.Component {
       let rocketID = data[0]["rocket"]; //1165415311
 
       getRocketName(rocketID).then((response) => {
-        console.log(response);
 
         let tempObject = {
           name: name,
