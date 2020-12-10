@@ -88,9 +88,11 @@ class App extends React.Component {
             <div className="appContent">
               {this.state.dataArray.map(function (data, idx) {
                 return (
-                  <li key={idx}>
-                    {data.name} {data.date} {data.number} {data.rocket}{" "}
-                  </li>
+                  // <li key={idx}>
+                  //   {data.name} {data.date} {data.number} {data.rocket}{" "}
+                  // </li>
+
+                  <Item key={idx} name='jeff' age='21'/>
                 );
               })}
             </div>

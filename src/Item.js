@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Item() {
-    return (
-        <div className='itemContainer'>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+export default class Item extends Component {
+    render() {
+        return (
+            <div className='itemContainer'>
+            <p>{this.props.name}</p>
+            <p>{this.props.age}</p>
         </div>
-    )
+        )
+    }
 }
