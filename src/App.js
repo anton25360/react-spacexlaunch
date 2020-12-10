@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       isAscending: true,
+      dataArray: [],
     };
   }
 
@@ -28,14 +29,19 @@ class App extends React.Component {
     let getData = () => {
       fetch("https://api.spacexdata.com/v4/launches")
         .then((response) => response.json())
-        .then((data) => displayData(data));
+        .then((data) => {
+          displayData(data);
+        });
     };
 
     let displayData = (data) => {
-      let size = data.length
-      let item = data[0]
+      let size = data.length;
+      let item = data[0]["name"]; //FalconSat
       console.log(item);
-    }
+      let tempArray = this.state.dataArray
+      tempArray.push(item)
+      this.setState({ dataArray: tempArray });
+    };
 
     return (
       <div className="App">
@@ -53,11 +59,10 @@ class App extends React.Component {
               </button>
             </div>
             <div className="appContent">
-              <p>hellotherebro</p>
-              <p>hellotherebro</p>
-              <p>hellotherebro</p>
-              <p>hellotherebro</p>
-              <p>{this.state.count}</p>
+              {this.state.dataArray.map((item) => (
+                // <Item key={index} item={item} />
+                <p>{item}</p>
+              ))}
             </div>
           </div>
         </div>
