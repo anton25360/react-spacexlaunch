@@ -16,6 +16,7 @@ class App extends React.Component {
   }
 
   render() {
+
     let switchSort = () => {
       let btn = document.getElementById("btnSort");
       if (this.state.isAscending === true) {
@@ -27,21 +28,27 @@ class App extends React.Component {
       }
     };
 
-    let getData = () => {
+    let getDataFromAPI = () => {
       fetch("https://api.spacexdata.com/v4/launches")
         .then((response) => response.json())
         .then((data) => {
-          displayData(data);
+          let size = data.length; //160ish?
+          // displayData(data);
+
+          let i = 0;
+          while (i != size) {
+            displayData(data, i);
+            i++;
+          }
         });
     };
+    getDataFromAPI()
 
-    let displayData = (data) => {
-      // let size = data.length; //160
-
-      let name = data[0]["name"]; //FalconSat
-      let date = formatDate(data[0]["date_utc"]); //24 March 2006
-      let number = data[0]["flight_number"]; //1
-      let rocketID = data[0]["rocket"]; //1165415311
+    let displayData = (data, i) => {
+      let name = data[i]["name"]; //FalconSat
+      let date = formatDate(data[i]["date_utc"]); //24 March 2006
+      let number = data[i]["flight_number"]; //1
+      let rocketID = data[i]["rocket"]; //1165415311
 
       getRocketName(rocketID).then((response) => {
         let tempObject = {
@@ -76,7 +83,7 @@ class App extends React.Component {
           <img className="appImage" src={image} alt="rocket launch" />
           <div className="appTest">
             <div className="appButtonsContainer">
-              <button className="appButton" onClick={getData}>
+              <button className="appButton">
                 Filter by Year <img alt="select icon" src={select} />
               </button>
               <button className="appButton" onClick={switchSort}>
@@ -87,7 +94,13 @@ class App extends React.Component {
             <div className="appContent">
               {this.state.dataArray.map(function (data, idx) {
                 return (
-                  <Item key={idx} number={data.number} name={data.name} date={data.date} rocket={data.rocket}/>
+                  <Item
+                    key={idx}
+                    number={data.number}
+                    name={data.name}
+                    date={data.date}
+                    rocket={data.rocket}
+                  />
                 );
               })}
             </div>
