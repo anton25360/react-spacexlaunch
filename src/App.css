@@ -1,12 +1,13 @@
 .appContainer {
   /* border: 2px solid red; */
-  margin-top: 20px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 }
 
 .appImage {
   /* border: 2px solid rgb(241, 41, 241); */
+  margin-right: 20px;
 }
 
 .appTest {
