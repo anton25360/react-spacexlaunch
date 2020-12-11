@@ -150,6 +150,10 @@ class App extends React.Component {
                       </p>
                     );
                   })}
+
+                  <p className="dropdownItem" onClick={() => this.reloadData()}>
+                    Show All
+                  </p>
                 </div>
               </div>
 
