@@ -62,65 +62,60 @@ class App extends React.Component {
 
   switchSort = () => {
     let btn = document.getElementById("btnSort"); //btn id
-    if (this.state.isAscending === true) { //if isAscending is true
+    if (this.state.isAscending === true) {
+      //if isAscending is true
       btn.innerText = "Sort Descending";
       this.setState({ isAscending: false });
-      this.reverseArray()
+      this.reverseArray();
     } else if (this.state.isAscending === false) {
       btn.innerText = "Sort Ascending";
       this.setState({ isAscending: true });
-      this.reverseArray()
+      this.reverseArray();
     }
   };
 
-  reverseArray = () => { 
-    let tempArray = this.state.dataArray
-    tempArray.reverse()
+  reverseArray = () => {
+    let tempArray = this.state.dataArray;
+    tempArray.reverse();
     this.setState({ dataArray: tempArray });
-  }
+  };
 
   reloadData = () => {
     this.setState({ dataArray: [] });
-    this.getApiData()
-  }
+    this.getApiData();
+  };
 
   render() {
-
-
     return (
       <div className="App">
-
-<div className="navbarContainer">
-      <div className="navbarLogoContainer">
-        <img alt='logo' className="navbarLogoImage" src={logo} />
-        <p className="navbarLogoText">LAUNCHES</p>
-      </div>
-      <div className="navbarReload" onClick={this.reloadData}>
-        Reload Data <img alt='reload' className="navbarReloadIcon" src={reload} />
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div className="navbarContainer">
+          <div className="navbarLogoContainer">
+            <img alt="logo" className="navbarLogoImage" src={logo} />
+            <p className="navbarLogoText">LAUNCHES</p>
+          </div>
+          <div className="navbarReload" onClick={this.reloadData}>
+            Reload Data{" "}
+            <img alt="reload" className="navbarReloadIcon" src={reload} />
+          </div>
+        </div>
 
         <div className="appContainer">
           <img className="appImage" src={image} alt="rocket launch" />
           <div className="appTest">
             <div className="appButtonsContainer">
-              <button className="appButton">
-                Filter by Year <img alt="select icon" src={select} />
-              </button>
+              <div className="dropdown">
+                <button className="appButton">
+                  Filter by Year <img alt="select icon" src={select} />
+                </button>
+
+                <div className="dropdownContent">
+                  <p className="dropdownItem">Hello World!</p>
+                  <p className="dropdownItem">Hello World!</p>
+                  <p className="dropdownItem">Hello World!</p>
+                  <p className="dropdownItem">Hello World!</p>
+                </div>
+              </div>
+
               <button className="appButton" onClick={this.switchSort}>
                 <span id="btnSort">Sort Ascending</span>{" "}
                 <img alt="sort icon" className="appButtonSortIcon" src={sort} />

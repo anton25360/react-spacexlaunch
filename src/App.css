@@ -1,26 +1,21 @@
 .appContainer {
-  /* border: 2px solid red; */
   margin-top: 50px;
   display: flex;
   justify-content: center;
 }
 
 .appImage {
-  /* border: 2px solid rgb(241, 41, 241); */
   margin-right: 20px;
 }
 
 .appTest {
-  /* border: 2px solid violet; */
   height: 300px;
   width: 500px;
 }
 
 .appButtonsContainer {
-  /* border: 2px solid aquamarine; */
   text-align: end;
   margin-right: 10px;
-  /* float: right; */
 }
 
 .appButton {
@@ -42,4 +37,46 @@
 
 .appContent {
   padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 1px 16px;
+  z-index: 1;
+}
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownItem{
+  color: #545454;
+}
+
+.dropdownItem:hover{
+  color: black;
+  cursor: pointer;
+  text-decoration: underline;
+
 }
