@@ -16,6 +16,7 @@ class App extends React.Component {
       isAscending: true,
       dataArray: [],
       yearsArray: [],
+      dataArrayPermanent:[]
     };
   }
 
@@ -103,6 +104,27 @@ class App extends React.Component {
 
   filterByYear = (year) => {
     console.log(year);
+    let dataArrayCopy = this.state.dataArray
+    let dataArrayFiltered =[]
+    // console.log(dataArrayCopy);
+
+    dataArrayCopy.forEach(element => {
+      // console.log(element);
+
+      // let elementArray = Object.values(element);
+      console.log(element.date);
+
+
+
+
+      if (element.date.includes(year)) {
+        dataArrayFiltered.push(element)
+      }
+    });
+
+    console.log(dataArrayFiltered);
+    this.setState({ dataArray: dataArrayFiltered });
+
   };
 
   render() {
