@@ -101,9 +101,9 @@ class App extends React.Component {
     this.getApiData();
   };
 
-  logYear = (year) => {
+  filterByYear = (year) => {
     console.log(year);
-  }
+  };
 
   render() {
     return (
@@ -131,17 +131,10 @@ class App extends React.Component {
                 <div className="dropdownContent">
                   {this.state.yearsArray.map((data, id) => {
                     return (
-                      // <Item
-                      //   key={data.number}
-                      //   number={data.number}
-                      //   name={data.name}
-                      //   date={data.date}
-                      //   rocket={data.rocket}
-                      // />
                       <p
                         key={id}
                         className="dropdownItem"
-                        onClick={()=>this.logYear(data)}
+                        onClick={() => this.filterByYear(data)}
                       >
                         {data}
                       </p>
