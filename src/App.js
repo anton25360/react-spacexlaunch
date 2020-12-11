@@ -61,15 +61,23 @@ class App extends React.Component {
   };
 
   switchSort = () => {
-    let btn = document.getElementById("btnSort");
-    if (this.state.isAscending === true) {
+    let btn = document.getElementById("btnSort"); //btn id
+    if (this.state.isAscending === true) { //if isAscending is true
       btn.innerText = "Sort Descending";
       this.setState({ isAscending: false });
+      this.reverseArray()
     } else if (this.state.isAscending === false) {
       btn.innerText = "Sort Ascending";
       this.setState({ isAscending: true });
+      this.reverseArray()
     }
   };
+
+  reverseArray = () => { 
+    let tempArray = this.state.dataArray
+    tempArray.reverse()
+    this.setState({ dataArray: tempArray });
+  }
 
   reloadData = () => {
     this.setState({ dataArray: [] });
