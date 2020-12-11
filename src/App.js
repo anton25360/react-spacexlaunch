@@ -129,7 +129,7 @@ class App extends React.Component {
                 </button>
 
                 <div className="dropdownContent">
-                  {this.state.yearsArray.map(function (data, id) {
+                  {this.state.yearsArray.map((data, id) => {
                     return (
                       // <Item
                       //   key={data.number}
@@ -141,9 +141,7 @@ class App extends React.Component {
                       <p
                         key={id}
                         className="dropdownItem"
-                        onClick={() => {
-                          console.log(data);
-                        }}
+                        onClick={()=>this.logYear(data)}
                       >
                         {data}
                       </p>
