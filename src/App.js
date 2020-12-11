@@ -16,7 +16,7 @@ class App extends React.Component {
       isAscending: true,
       dataArray: [],
       yearsArray: [],
-      dataArrayPermanent:[]
+      dataArrayPermanent: [],
     };
   }
 
@@ -29,7 +29,6 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         let dataArrayLocal = [];
-        // let yearsArrayLocal = [];
 
         data.forEach((element) => {
           let name = element["name"]; //FalconSat
@@ -46,6 +45,7 @@ class App extends React.Component {
             };
             dataArrayLocal.push(tempObject);
             this.setState({ dataArray: dataArrayLocal });
+            this.setState({ dataArrayPermanent: dataArrayLocal });
           });
         });
       });
@@ -103,28 +103,16 @@ class App extends React.Component {
   };
 
   filterByYear = (year) => {
-    console.log(year);
-    let dataArrayCopy = this.state.dataArray
-    let dataArrayFiltered =[]
-    // console.log(dataArrayCopy);
+    let dataArrayCopy = this.state.dataArrayPermanent;
+    let dataArrayFiltered = [];
 
-    dataArrayCopy.forEach(element => {
-      // console.log(element);
-
-      // let elementArray = Object.values(element);
-      console.log(element.date);
-
-
-
-
+    dataArrayCopy.forEach((element) => {
       if (element.date.includes(year)) {
-        dataArrayFiltered.push(element)
+        dataArrayFiltered.push(element);
       }
     });
 
-    console.log(dataArrayFiltered);
     this.setState({ dataArray: dataArrayFiltered });
-
   };
 
   render() {
