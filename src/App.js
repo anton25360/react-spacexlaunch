@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       isAscending: true,
       dataArray: [],
+      yearsArray: [],
     };
   }
 
@@ -27,11 +28,13 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         let dataArrayLocal = [];
+        // let yearsArrayLocal = [];
 
         data.forEach((element) => {
           let name = element["name"]; //FalconSat
           let date = this.formatDate(element["date_utc"]); //24 March 2006
           let number = element["flight_number"]; //1
+          this.populateYearsArray(element["date_utc"]);
 
           this.getRocketName(element["rocket"]).then((response) => {
             let tempObject = {
@@ -45,6 +48,19 @@ class App extends React.Component {
           });
         });
       });
+  };
+
+  populateYearsArray = (date) => {
+    let yearsArrayCopy = this.state.yearsArray;
+    let year = date.substring(0, 4); //2001
+
+    //if array contains the year, skip
+    if (yearsArrayCopy.includes(year)) {
+      //do nothing
+    } else {
+      yearsArrayCopy.push(year);
+    }
+    this.setState({ yearsArray: yearsArrayCopy });
   };
 
   formatDate = (dateString) => {
@@ -85,6 +101,10 @@ class App extends React.Component {
     this.getApiData();
   };
 
+  logYear = (year) => {
+    console.log(year);
+  }
+
   render() {
     return (
       <div className="App">
@@ -109,10 +129,26 @@ class App extends React.Component {
                 </button>
 
                 <div className="dropdownContent">
-                  <p className="dropdownItem">Hello World!</p>
-                  <p className="dropdownItem">Hello World!</p>
-                  <p className="dropdownItem">Hello World!</p>
-                  <p className="dropdownItem">Hello World!</p>
+                  {this.state.yearsArray.map(function (data, id) {
+                    return (
+                      // <Item
+                      //   key={data.number}
+                      //   number={data.number}
+                      //   name={data.name}
+                      //   date={data.date}
+                      //   rocket={data.rocket}
+                      // />
+                      <p
+                        key={id}
+                        className="dropdownItem"
+                        onClick={() => {
+                          console.log(data);
+                        }}
+                      >
+                        {data}
+                      </p>
+                    );
+                  })}
                 </div>
               </div>
 
