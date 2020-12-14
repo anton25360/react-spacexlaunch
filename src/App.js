@@ -44,8 +44,13 @@ class App extends React.Component {
               rocket: response,
             };
             dataArrayLocal.push(tempObject);
-            this.setState({ dataArray: dataArrayLocal });
-            this.setState({ dataArrayPermanent: dataArrayLocal });
+
+            const dataArrayLocalSorted = dataArrayLocal.sort(
+              (a, b) => a.number - b.number
+            );
+
+            this.setState({ dataArray: dataArrayLocalSorted });
+            this.setState({ dataArrayPermanent: dataArrayLocalSorted });
           });
         });
       });
